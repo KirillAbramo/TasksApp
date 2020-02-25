@@ -1,0 +1,44 @@
+<div id="main">
+    <div id="one">
+        <form action="" name="f1" class="form">
+            <p>Login</p>
+            <input type="text" [(ngModel)]="userName" name="userName">
+            <br><br>
+            <p>Password</p>
+            <input type="password" [(ngModel)]="userPassword" name="userPassword">
+            <br><br>
+            <p>Email</p>
+            <input type="text" [(ngModel)]="userMail" name="userMail">
+            <br><br><br>
+            <input *ngIf="!editStatus" type="button" name="add" value="Add user" (click)="addUser()" class="green">
+            <input *ngIf="editStatus" type="button" value="SaveEdit" name="saveEdit" (click)="saveEditUser()"
+                class="blue">
+        </form>
+    </div>
+
+    <div id="two">
+        <table id="tab">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Login</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="table">
+                <tr *ngFor="let user of users; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.userPassword}}</td>
+                    <td>{{user.userMail}}</td>
+                    <td><input type="button" value="edit" (click)="edit(user)" class="orange"></td>
+                    <td><input type="button" value="delete" (click)="delete(user)" class="red"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

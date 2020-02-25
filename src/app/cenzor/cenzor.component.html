@@ -1,0 +1,11 @@
+<div id="main">
+    <p>BAD WORDS:</p>
+    <span id="list"> {{ badWordList }} </span>
+    <input [placeholder]="placeholder" type="text" [(ngModel)]="badWord" id="enter" name="badWord"
+        [style.border-color]='color'>
+    <input type="button" value="Add" id="add" (click)="addBadWords()">
+    <input type="button" value="Reset" id="reset" (click)="reset()">
+    <textarea [placeholder]="placeholder2" [(ngModel)]="allWord" id="enter2" name="allWord"
+        [style.border-color]='color2'></textarea>
+    <input type="button" value="Cenzor" id="cenzor" (click)="addAllWords()">
+</div>

@@ -1,0 +1,38 @@
+<div id="main">
+    <div id="one">
+        <form action="" name="f1" class="form">
+            <p>Login</p>
+            <br>
+            <input type="text" [(ngModel)]="taskName" name="taskName">
+            <input *ngIf="!editStatus" type="button" name="add" value="Add" (click)="addTask()" class="green"> 
+            <input *ngIf="editStatus" type="button" value="SaveEdit" name="saveEdit" (click)="saveEditUser()" class="blue">
+        </form>
+    </div>
+    <br>
+            <table id="tab">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Task</th>
+                        <th>Check</th>
+                        <th>Done/In Progress</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="table">
+                 <tr *ngFor="let task of tasks; let i=index">
+                     <td>{{i+1}}</td>
+                 <td>{{task.taskName}}</td>
+                 <td><input type="checkbox" name="check" class="check" style="width: 15px; height: 15px;" (click)="onChecked(task)"></td>
+                 <td>
+                     <div *ngIf="!task.status">In progress</div>
+                     <div *ngIf="task.status">Done</div>
+                 </td>  
+                 <td><input type="button" value="edit" (click)="edit(task)" class="orange"></td>
+                 <td><input type="button" value="delete" (click)="delete(task)" class="red"></td>
+                 </tr>
+                </tbody>
+            </table>
+            
+</div>
